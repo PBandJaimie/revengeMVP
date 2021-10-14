@@ -15,6 +15,19 @@ const getAllRoommates = function(callback) {
   });
 };
 
+const getAllRoommates = function(callback) {
+  const queryString = SELECT * FROM chores;
+  connection.query(queryString, (err, data) => {
+    if (err) {
+      console.log('ERROR in getAllChores: ', err)
+      callback(err);
+    } else {
+      console.log('getAllChores DATA: ', data)
+      callback(data);
+    }
+  });
+};
+
 module.exports = {
   getAllRoommates
 }

@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/roommates', routes.getRoommates)
+app.get('/chores', routes.getChores)
 
 
 app.listen(port, () => {
