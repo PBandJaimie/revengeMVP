@@ -7,7 +7,6 @@ class Chores extends React.Component {
     this.state = {
       placeholder: []
     }
-    //bind here
   }
 
   render() {
@@ -16,7 +15,7 @@ class Chores extends React.Component {
       <div id="chores">
          <h2>Chores</h2>
         {chores.map((chore, assignee, key) =>
-          <Chore chore={chore.chore} assignee={chore.assignee} key={chore.chore} />)}
+          <Chore chore={chore.name} assignee={chore.assignee} key={chore.name} />)}
       </div>
     )
   }

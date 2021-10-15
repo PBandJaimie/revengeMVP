@@ -1,21 +1,28 @@
 import React from 'react';
+import LogEntry from './logEntry.jsx';
 
 class Log extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      placeholder: []
+      toggle: false
     }
     //bind here
   }
 
+
   render() {
+    let log = this.props.log;
     return (
       <div id="log">
-        I am Log
+        <h2>{log[0].chore} Log</h2>
+        <ul>
+          {log.map((entry, index) => <LogEntry completedBy={entry.roommate} date={entry.date} key={`logEntry - ${index}`} />)}
+        </ul>
       </div>
     )
   }
 }
+
 
 export default Log;

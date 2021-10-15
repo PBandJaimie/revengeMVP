@@ -3,19 +3,17 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Roommates from './components/roommates.jsx';
 import Chores from './components/chores.jsx';
-import Log from './components/log.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       roommates: [],
-      chores: [],
-      log: []
+      chores: []
     }
     this.getAllRoommates = this.getAllRoommates.bind(this);
     this.getAllChores = this.getAllChores.bind(this);
-    this.getLog = this.getLog.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +26,7 @@ class App extends React.Component {
       type: 'get',
       url: '/roommates',
       success: (response) => {
+        console.log('getallroommates response: ', response)
         this.setState({
           roommates: response
         });
@@ -41,22 +40,9 @@ class App extends React.Component {
       type: 'get',
       url: '/chores',
       success: (response) => {
-        console.log('RESPONSE: ', response)
+        console.log('getallchores response: ', response)
         this.setState({
           chores: response
-        });
-      },
-      dataType: 'json'
-    });
-  }
-
-  getLog() {
-    $.ajax({
-      type: 'get',
-      url: '/log',
-      success: (response) => {
-        this.setState({
-          log: response
         });
       },
       dataType: 'json'
@@ -69,7 +55,6 @@ class App extends React.Component {
         <h1>Dish, please!</h1><br></br>
         <Roommates roommates={this.state.roommates} /><br></br>
         <Chores chores={this.state.chores} /><br></br>
-        <Log log={this.state.log} />
       </div>
     )
   }

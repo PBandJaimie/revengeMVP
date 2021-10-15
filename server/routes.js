@@ -24,14 +24,16 @@ const getChores = (req, res) => {
 }
 
 const getChoreLog = (req, res) => {
-  console.log('looking for chore to log: ', req.body)
-  let chore = req.body
+  let choreLogs = [];
+  let chore = req.query.chore;
   controllers.getAllLogs(chore, (log) => {
-    console.log('log for chore in server routes: ', log)
-    res.send(log)
+    for (let i = 0; i < log.length; i++) {
+      let currentEntry = log[i];
+      choreLogs.push(currentEntry);
+    }
+    res.send(choreLogs);
   })
 }
-
 
 module.exports = {
   getRoommates,
