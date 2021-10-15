@@ -14,7 +14,6 @@ app.get('/roommates', routes.getRoommates)
 app.get('/chores', routes.getChores)
 app.get('/log', routes.getLog)
 
-
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

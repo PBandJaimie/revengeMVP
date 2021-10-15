@@ -29,7 +29,8 @@ const getAllChores = function(callback) {
 };
 
 const getChoreLog = function(chore, callback) {
-  const queryString = SELECT * FROM chores;
+  const choreId = `SELECT id FROM chores WHERE name = "${chore}"`;
+  const queryString = `SELECT * FROM log WHERE chore_id = "${choreId}"`;
   connection.query(queryString, (err, data) => {
     if (err) {
       console.log('ERROR in getChoreLog: ', err)
@@ -44,5 +45,5 @@ const getChoreLog = function(chore, callback) {
 module.exports = {
   getAllRoommates,
   getAllChores,
-
+  getChoreLog
 }
