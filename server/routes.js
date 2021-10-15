@@ -2,15 +2,24 @@ const controllers = require('./../database/controllers.js');
 
 const getRoommates = (req, res) => {
   controllers.getAllRoommates((roommates) => {
-    console.log('roommates is server routes: ', roommates)
+    console.log('roommates in server routes: ', roommates)
     res.send(roommates)
   })
 }
 
 const getChores = (req, res) => {
   controllers.getAllChores((chores) => {
-    console.log('roommates is server routes: ', chores)
+    console.log('chores in server routes: ', chores)
     res.send(chores)
+  })
+}
+
+const getLog = (req, res) => {
+  console.log('looking for chore to log: ', req.body)
+  let chore = req.body
+  controllers.getChoreLog(chore, (log) => {
+    console.log('log for chore in server routes: ', log)
+    res.send(log)
   })
 }
 
@@ -19,5 +28,6 @@ const getChores = (req, res) => {
 
 module.exports = {
   getRoommates,
-  getChores
+  getChores,
+  getLog
 }

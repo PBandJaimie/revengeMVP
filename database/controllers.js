@@ -15,7 +15,7 @@ const getAllRoommates = function(callback) {
   });
 };
 
-const getAllRoommates = function(callback) {
+const getAllChores = function(callback) {
   const queryString = SELECT * FROM chores;
   connection.query(queryString, (err, data) => {
     if (err) {
@@ -28,6 +28,21 @@ const getAllRoommates = function(callback) {
   });
 };
 
+const getChoreLog = function(chore, callback) {
+  const queryString = SELECT * FROM chores;
+  connection.query(queryString, (err, data) => {
+    if (err) {
+      console.log('ERROR in getChoreLog: ', err)
+      callback(err);
+    } else {
+      console.log('getChoreLog DATA: ', data)
+      callback(data);
+    }
+  });
+};
+
 module.exports = {
-  getAllRoommates
+  getAllRoommates,
+  getAllChores,
+
 }

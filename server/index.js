@@ -12,6 +12,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/roommates', routes.getRoommates)
 app.get('/chores', routes.getChores)
+app.get('/log', routes.getLog)
 
 
 app.listen(port, () => {
