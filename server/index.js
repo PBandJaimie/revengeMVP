@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/roommates', routes.getRoommates)
 app.get('/chores', routes.getChores)
-app.get('/log', routes.getLog)
+app.get('/log', routes.getChoreLog)
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
