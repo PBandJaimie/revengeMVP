@@ -38,10 +38,24 @@ const getAllLogs = function(chore, callback) {
   });
 };
 
+const addNewRoommate = function(roommateName, callback) {
+  console.log('adding roomate in controllers')
+  const queryString = `INSERT INTO roommates(name) VALUES("${roommateName}")`;
+  connection.query(queryString, (err, data) => {
+    if (err) {
+      console.log('ERROR in addNewRoommate: ', err)
+      callback(err);
+    } else {
+      callback(data);
+    }
+  })
+}
+
 
 
 module.exports = {
   getAllRoommates,
   getAllChores,
-  getAllLogs
+  getAllLogs,
+  addNewRoommate
 }

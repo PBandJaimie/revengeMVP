@@ -35,8 +35,16 @@ const getChoreLog = (req, res) => {
   })
 }
 
+const addRoommate = (req, res) => {
+  let name = req.body.name
+  controllers.addNewRoommate(name, (success) => {
+    res.send('ok')
+  })
+}
+
 module.exports = {
   getRoommates,
   getChores,
-  getChoreLog
+  getChoreLog,
+  addRoommate
 }
