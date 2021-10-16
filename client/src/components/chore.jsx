@@ -14,9 +14,6 @@ class Chore extends React.Component {
       this.props.getLog(event.target.innerText);
       this.props.choreSelected(event.target.innerText)
     } else if (this.props.selected === event.target.innerText) {
-      this.setState({
-        log: []
-      })
       this.props.choreSelected(event.target.innerText)
     } else if (this.props.selected !== event.target.innerText) {
       this.props.choreSelected(event.target.innerText)

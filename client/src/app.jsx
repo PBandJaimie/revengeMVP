@@ -14,7 +14,6 @@ class App extends React.Component {
     }
     this.getAllRoommates = this.getAllRoommates.bind(this);
     this.getAllChores = this.getAllChores.bind(this);
-    // this.onRoommateSubmit = this.onRoommateSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -22,12 +21,6 @@ class App extends React.Component {
     this.getAllChores();
   }
 
-  // componentDidUpdate(prevState) {
-  //   if (this.state !== prevState) {
-  //     this.getAllRoommates();
-  //     this.getAllChores();
-  //   }
-  // }
 
   getAllRoommates() {
     $.ajax({
@@ -55,27 +48,12 @@ class App extends React.Component {
     });
   }
 
-  // onRoommateSubmit(value) {
-  //   $.ajax({
-  //     type: 'post',
-  //     url: '/roommates',
-  //     data: {name: value},
-  //     success: (res) => {
-  //       this.getAllRoommates()
-  //     },
-  //     error: (err) => {
-  //       alert('error!: ', err)
-  //     }
-  //   });
-  //   event.preventDefault()
-  // }
-
   render() {
     return (
       <div id="app">
         <h1>Dish, please!</h1><br></br>
-        <Roommates roommates={this.state.roommates} getAllRoommates={this.getAllRoommates} uponAddingRoommate={this.onRoommateSubmit} /><br></br>
-        <Chores chores={this.state.chores} getAllChores={this.getAllChores} /><br></br>
+        <Roommates roommates={this.state.roommates} getAllRoommates={this.getAllRoommates} /><br></br>
+        <Chores chores={this.state.chores} getAllChores={this.getAllChores} roommates={this.state.roommates} /><br></br>
       </div>
     )
   }

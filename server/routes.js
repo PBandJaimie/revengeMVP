@@ -42,9 +42,39 @@ const addRoommate = (req, res) => {
   })
 }
 
+const addChore = (req, res) => {
+  let chore = req.body.name;
+  let assignee = req.body.assignee;
+  controllers.addNewChore(chore, assignee, (success) => {
+    res.send('ok')
+  })
+}
+
+const addLogEntry = (req, res) => {
+  let roommateName = req.body.name;
+  let chore = req.body.chore;
+  let names = [];
+  let newAssignee = '';
+  controllers.addNewLogEntry(roommateName, chore, (success) => {
+    controllers.getAllRoommates((roommatesData) => {
+      for (let i = 0; i < roommatesData.length; i++) {
+        names.push(roommatesData[i].name)
+      }
+      let completedByIndex = names.indexOf(roommateName);
+      let nextIndex = completedByIndex + 1;
+      let newAssignee = names[nextIndex] || names[0];
+      controllers.updateAssignee(chore, roommateName, newAssignee, (updated) => {
+        res.send('ok');
+      })
+    })
+  })
+}
+
 module.exports = {
   getRoommates,
   getChores,
   getChoreLog,
-  addRoommate
+  addRoommate,
+  addChore,
+  addLogEntry
 }
