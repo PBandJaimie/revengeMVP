@@ -45,10 +45,10 @@ class Log extends React.Component {
     if (this.props.log.length !== 0) {
       return (
         <div id="log">
-          <h2>{log[0].chore} Log</h2>
+          <div id="columnTitle"><u>{log[0].chore} Log</u></div>
           <ul>
             {log.map((entry, index) => <LogEntry completedBy={entry.roommate} date={entry.date} key={`logEntry - ${index}`} />)}
-            <li>
+            <li id="individuals">
               <form onSubmit={this.handleSubmit}>
                 <label>
                   <select value={this.state.value} onChange={this.handleChange}>
@@ -60,7 +60,7 @@ class Log extends React.Component {
                     })};
                   </select>
                 </label>
-                <input type="submit" value="+" />
+                <input className="hoverToClick" type="submit" value="+" />
               </form>
             </li>
           </ul>
@@ -68,10 +68,10 @@ class Log extends React.Component {
       )
     } else if (this.props.log.length === 0 && this.props.selected !== '') {
       return (
-        <div id="log">
-          <h2>{this.props.selected} Log</h2>
+        <div className="log">
+          <div id="columnTitle"><u>{this.props.selected} Log</u></div>
           <ul>
-            <li>
+            <li id="individuals">
               <form onSubmit={this.handleSubmit}>
                 <label>
                   <select value={this.state.value} onChange={this.handleChange}>
@@ -83,14 +83,19 @@ class Log extends React.Component {
                     })};
                   </select>
                 </label>
-                <input type="submit" value="+" />
+                <input className="hoverToClick" type="submit" value="+" />
               </form>
             </li>
           </ul>
         </div>
       )
     } else {
-      return null;
+      return (
+        <div id="log">
+          <div id="columnTitle"><u>Log</u></div>
+          <div id="individuals">Select a chore to view its log</div>
+        </div>
+      )
     }
   }
 }

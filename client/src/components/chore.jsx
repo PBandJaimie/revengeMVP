@@ -22,10 +22,8 @@ class Chore extends React.Component {
 
   render() {
       return (
-        <div>
-          <div id="chore">
-            <h3 onClick={this.handleClick}>{this.props.chore}</h3><h4>-{this.props.assignee}</h4>
-          </div>
+        <div id="chore">
+          <div id="individuals" className="hoverToBold" onClick={this.handleClick}>{this.props.chore}</div><div id="assignee">*{this.props.assignee}</div>
         </div>
       )
     }

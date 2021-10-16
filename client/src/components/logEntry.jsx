@@ -7,7 +7,7 @@ const LogEntry = (props) => {
   let year = fullDate.getFullYear();
   let time = fullDate.toString().slice(16, 21);
   return (
-    <li id="entry">by {props.completedBy} on {month}.{date}.{year} @ {time}</li>
+    <li id="individuals">by {props.completedBy} on {month}.{date}.{year} @ {time}</li>
   )
 }
 

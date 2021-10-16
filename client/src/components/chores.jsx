@@ -86,19 +86,19 @@ class Chores extends React.Component {
   render() {
     let chores = this.props.chores
     return (
-      <div>
-        <div id="chores">
-          <h2>Chores</h2>
+      <div id="choresAndLog">
+        <div className="chores">
+          <div id="columnTitle"><u>Chores</u></div>
           {chores.map((chore, assignee, key) =>
             <Chore chore={chore.name} assignee={chore.assignee} key={chore.name} choreSelected={this.choreSelected} selected={this.state.selected} getLog={this.getLog} />)}
             <form onSubmit={this.handleSubmit}>
             <label>
-              <input placeholder='add a chore' type='text' value={this.state.value} onChange={this.handleChange} />
+              <input placeholder='add a chore' type='text' value={this.state.value} onChange={this.handleChange} required/>
             </label>
-            <input type="submit" value="+" />
+            <input className="hoverToClick" type="submit" value="+" />
             </form>
         </div>
-        <Log log={this.state.log} getLog={this.getLog} roommates={this.props.roommates} selected={this.state.selected} />
+        <Log id="log" log={this.state.log} getLog={this.getLog} roommates={this.props.roommates} selected={this.state.selected} />
       </div>
     )
   }

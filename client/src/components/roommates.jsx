@@ -39,14 +39,14 @@ class Roommates extends React.Component {
   render() {
     let roommates = this.props.roommates
     return (
-      <div id="roommates">
-        <h2>Roommates</h2>
+      <div className="roommates">
+        <div id="columnTitle"><u>Roommates</u></div>
         {roommates.map((roommate, index) => <Roommate roommate={roommate} key={`roommate - ${index}`} />)}
         <form onSubmit={this.handleSubmit}>
           <label>
             <input placeholder='add a roommate' type='text' value={this.state.value} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="+" />
+          <input className="hoverToClick" type="submit" value="+" />
         </form>
       </div>
     );
