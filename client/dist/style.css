@@ -64,7 +64,7 @@ div#log {
   font-size: 1.5em;
 }
 
-div#individuals:hover {
+div#individuals.hoverToBold:hover {
   text-decoration: underline;
 }
 
