@@ -1,15 +1,13 @@
 import React from 'react';
 
 const LogEntry = (props) => {
-  console.log(props.date)
-  let date = new Date(props.date);
-  let a = date.getMonth() + 1;
-  let b = date.getDate();
-  let c = date.getFullYear();
-  let d = date.toString().slice(16, 21);
-  console.log
+  let fullDate = new Date(props.date);
+  let month = fullDate.getMonth() + 1;
+  let date = fullDate.getDate();
+  let year = fullDate.getFullYear();
+  let time = fullDate.toString().slice(16, 21);
   return (
-    <li id="entry">by {props.completedBy} on {a}.{b}.{c} @ {d}</li>
+    <li id="entry">by {props.completedBy} on {month}.{date}.{year} @ {time}</li>
   )
 }
 

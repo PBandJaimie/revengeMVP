@@ -26,7 +26,6 @@ class App extends React.Component {
       type: 'get',
       url: '/roommates',
       success: (response) => {
-        console.log('getallroommates response: ', response)
         this.setState({
           roommates: response
         });
@@ -40,7 +39,6 @@ class App extends React.Component {
       type: 'get',
       url: '/chores',
       success: (response) => {
-        console.log('getallchores response: ', response)
         this.setState({
           chores: response
         });
