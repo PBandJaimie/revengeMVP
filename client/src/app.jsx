@@ -20,7 +20,6 @@ class App extends React.Component {
     this.getAllChores();
   }
 
-
   getAllRoommates() {
     $.ajax({
       type: 'get',
@@ -52,7 +51,7 @@ class App extends React.Component {
       <div id="appWithin">
         <div className="title">
           <img id="clipart" src="dishPleaseImage.png" height='162' width="180" alt="Dishes Clipart" />
-          <h1 className="title">Dish, please!</h1><br></br>
+          <h1 className="title">Dish, Please!</h1><br></br>
         </div>
         <Roommates roommates={this.state.roommates} getAllRoommates={this.getAllRoommates} /><br></br>
         <Chores chores={this.state.chores} getAllChores={this.getAllChores} roommates={this.state.roommates} /><br></br>

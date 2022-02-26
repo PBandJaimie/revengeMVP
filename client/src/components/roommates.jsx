@@ -42,7 +42,7 @@ class Roommates extends React.Component {
       <div className="roommates">
         <div id="columnTitle"><u>Roommates</u></div>
         {roommates.map((roommate, index) => <Roommate roommate={roommate} key={`roommate - ${index}`} />)}
-        <form onSubmit={this.handleSubmit}>
+        <form className="addForm" onSubmit={this.handleSubmit}>
           <label>
             <input placeholder='add a roommate' type='text' value={this.state.value} onChange={this.handleChange} />
           </label>

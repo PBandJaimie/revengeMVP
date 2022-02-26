@@ -17,7 +17,6 @@ class Chores extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   choreSelected(chore) {
     if (this.state.selected === chore) {
       this.setState({
@@ -55,15 +54,12 @@ class Chores extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log('this.props.roommates: ', this.props.roommates)
+
     let max = Math.floor(this.props.roommates.length) - 1;
-    console.log('max: ', max)
     let min = 0
-    console.log('min: ', min)
     let randomIndex = Math.floor(Math.random() * (max - min + 1) + min)
-    console.log('randomIndex: ', randomIndex)
     let randomAssignee = this.props.roommates[randomIndex];
-    console.log('randomAssignee: ', randomAssignee)
+
     $.ajax({
       type: 'post',
       url: '/chores',
@@ -91,7 +87,7 @@ class Chores extends React.Component {
           <div id="columnTitle"><u>Chores</u></div>
           {chores.map((chore, assignee, key) =>
             <Chore chore={chore.name} assignee={chore.assignee} key={chore.name} choreSelected={this.choreSelected} selected={this.state.selected} getLog={this.getLog} />)}
-            <form onSubmit={this.handleSubmit}>
+            <form className="addForm" onSubmit={this.handleSubmit}>
             <label>
               <input placeholder='add a chore' type='text' value={this.state.value} onChange={this.handleChange} required/>
             </label>

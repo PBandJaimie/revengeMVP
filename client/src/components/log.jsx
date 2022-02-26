@@ -72,7 +72,7 @@ class Log extends React.Component {
           <div id="columnTitle"><u>{this.props.selected} Log</u></div>
           <ul>
             <li id="individuals">
-              <form onSubmit={this.handleSubmit}>
+              <form className="addForm" onSubmit={this.handleSubmit}>
                 <label>
                   <select value={this.state.value} onChange={this.handleChange}>
                     <option value='default'>
